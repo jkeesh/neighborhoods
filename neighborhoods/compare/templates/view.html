@@ -1,3 +1,6 @@
+{% load compare_extras %}
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <a href="/">Home</a>
@@ -24,11 +27,11 @@ End: {{city2}}
         {{neighborhood}}
     </td>
     <td>
-
-        RESULT!
+        {% best_match city1 city2 neighborhood as top_match %}
+        {{ top_match.0}}
     </td>
     <td>
-        SCORE
+        {{ top_match.1}}
     </td>
 
 </tr>

@@ -10,6 +10,8 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from collections import Counter
+
 from .models import CityComparison
 
 NEW_YORK = [
@@ -142,6 +144,28 @@ CITIES = {
     'Washington DC': WASHINGTON_DC,
     'Chicago': CHICAGO,
 }
+
+def get_best_match(city1, city2, neighborhood1):
+    """Find which neighborhood in city2 matches city1."""
+
+    counter = Counter()
+
+    results = CityComparison.objects.filter(
+        start_city=city1, end_city=city2, neighborhood1=neighborhood1)
+
+    for result in results:
+        counter[result.neighborhood2] += 1
+
+    top = counter.most_common(10)
+
+    # No result
+    if not top:
+        return '', ''
+
+    # Return the winner. The 0 index is the city, the 1 index is the count.
+    # The third result in the tuple is the Counter object.
+    return top[0][0], top[0][1], counter
+
 
 
 def slug_to_name(slug):
