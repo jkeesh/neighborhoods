@@ -14,29 +14,133 @@ from .models import CityComparison
 
 NEW_YORK = [
     'West Village',
-    'East Village',
-    'SoHo',
+    'Williamsburg',
+    'Chelsea',
+    'Flatiron',
+    'Times Square',
+    'Midtown East',
+    'Central Park',
+    'Financial District',
+    'Princeton',
+    'Westchester',
+    'Long Island',
+    'Lower East Side',
+    'Upper East Side',
+    'Clinton Hill',
     'Dumbo',
+    'Gramarcy Park',
+    'Tribeca',
+    'Union Square',
+    'Greenwich Village',
+    'Brooklyn',
+    'Soho',
+    'Kips Bay',
+    'Flushing',
+    'Alphabet City',
     'Upper West Side',
+    'Central Park West',
+    'East Village',
 ]
 
 SAN_FRANCISCO = [
     'Mission',
     'Marina',
+    'SOMA',
+    'Fishermans Wharf',
+    'Russian Hill',
+    'Golden Gate Park',
+    'Financial District',
+    'Berkeley',
+    'Palo Alto',
+    'Mountain View',
+    'Lower Haight',
+    'Pac Heights',
+    'Potrero',
+    'Dogpatch',
+    'Nob Hill',
+    'Noe Valley',
+    'Union Square',
+    'North Beach',
+    'Oakland',
     'Hayes Valley',
-    'Potrero Hill',
-    'Tenderloin',
-    'Civic Center',
+    'Sunset',
+    'Richmond',
+    'Castro',
+    'Bernal Heights',
+    'Presidio',
+    'Haight Ashbury',
+]
+
+WASHINGTON_DC = [
+    'Columbia Heights',
+    'Georgetown',
+    'K Street/Chinatown',
+    'White House',
+    'H Street',
+    'National Mall',
+    'Metro Center',
+    'Tacoma Park',
+    'Bethesda',
+    'Fairfax',
+    'Adam\'s Morgan',
+    'Glover Park',
+    'Navy Yard',
+    'Federal Triangle',
+    'Woodley Park',
+    'Foggy Bottom',
+    'Farragut Square',
+    'Dupont Circle',
+    'Clarendon',
+    'Logan Circle',
+    'NoMa',
+    'Tacoma Park',
+    'U Street',
+    'Tenleytown',
+    'Cleveland Park',
+    'Shaw',
+]
+
+CHICAGO = [
+    'Logan Square',
+    'Magnificent Mile',
+    'West Loop',
+    'Millenium Park',
+    'River North',
+    'Grant Park',
+    'The Loop',
+    'Evanston',
+    'Lake Forest',
+    'Wilmette',
+    'Wicker Park',
+    'Gold Coast',
+    'Bucktown',
+    'Hyde Park',
+    'Lakeview',
+    'Old Town',
+    'Lincoln Square',
+    'Lincoln Park',
+    'University Village',
+    'Streeterville',
+    'Uptown',
+    'Chinatown',
+    'Boystown',
+    'Rogers Park',
+    'Near North Side',
+    'Ukrainian Village',
 ]
 
 CITY_SLUGS = [
     ('San Francisco', 'sf'),
     ('New York', 'nyc'),
+    ('Washington DC', 'dc'),
+    ('Chicago', 'chicago'),
 ]
 
 CITIES = {
     'New York': NEW_YORK,
-    'San Francisco': SAN_FRANCISCO
+    'San Francisco': SAN_FRANCISCO,
+    'Washington DC': WASHINGTON_DC,
+    'Chicago': CHICAGO,
 }
 
 
@@ -88,19 +192,10 @@ def save(request):
     start_city = request.GET['startCity']
     end_city = request.GET['endCity']
 
+    username = request.GET['username']
+
     request.GET.pop('startCity', None)
     request.GET.pop('endCity', None)
-
-    print request.GET
-
-    # start_city = models.CharField(max_length=200)
-    # neighborhood1 = models.CharField(max_length=200)
-
-    # end_city = models.CharField(max_length=200)
-    # neighborhood2 = models.CharField(max_length=200)
-
-    # timestamp = models.DateTimeField(auto_now_add=True)
-    # username = models.CharField(max_length=200, default='')
 
     for key, value in request.GET.iteritems():
         print "%s %s" % (key, value)
@@ -110,23 +205,15 @@ def save(request):
             end_city=end_city,
             neighborhood1=key,
             neighborhood2=value,
-            username='jkeeshauto'
+            username=username
         )
         new_comparison.save()
 
     context = {
         'CITY_SLUGS': CITY_SLUGS,
-        # 'START_NEIGHBORHOODS': CITIES[slug_to_name(city1)],
-        # 'END_NEIGHBORHOODS': CITIES[slug_to_name(city2)],
-        # 'city1': slug_to_name(city1),
-        # 'city2': slug_to_name(city2)
     }
 
     return redirect('/view/' + name_to_slug(start_city) + '/' + name_to_slug(end_city))
-
-
-    # return render(request, 'compare.html', context)
-
 
 
 
