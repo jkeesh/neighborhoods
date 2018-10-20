@@ -25,7 +25,10 @@ SECRET_KEY = 'y+&5pfg63k-^yhe!&lq#8)2#_(vh=w4!oxp!1e137*d!bdoks5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'neighborhood.thekeesh.com'
+]
 
 
 # Application definition
