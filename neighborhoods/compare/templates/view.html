@@ -1,0 +1,43 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<a href="/">Home</a>
+
+<h1>View City Comparison Results</h1>
+
+Start: {{city1}}
+<br><br>
+End: {{city2}}
+
+
+<table width="500px">
+
+<tr>
+    <th width="50%" style="text-align:left;">Starting</th>
+
+    <th width="50%" style="text-align:left;">Ending</th>
+</tr>
+
+{% for neighborhood in START_NEIGHBORHOODS %}
+
+<tr>
+    <td>
+        {{neighborhood}}
+    </td>
+    <td>
+
+        RESULT!
+    </td>
+    <td>
+        SCORE
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/compare/{{city1slug}}/{{city2slug}}">Add your own comparison</a>
+

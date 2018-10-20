@@ -66,6 +66,18 @@ def compare(request, city1, city2):
     }
     return render(request, 'compare.html', context)
 
+def view(request, city1, city2):
+    context = {
+        'CITY_SLUGS': CITY_SLUGS,
+        'START_NEIGHBORHOODS': CITIES[slug_to_name(city1)],
+        'END_NEIGHBORHOODS': CITIES[slug_to_name(city2)],
+        'city1': slug_to_name(city1),
+        'city2': slug_to_name(city2),
+        'city1slug': city1,
+        'city2slug': city2,
+    }
+    return render(request, 'view.html', context)
+
 def save(request):
 
     print request.GET
