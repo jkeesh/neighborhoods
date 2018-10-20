@@ -184,9 +184,6 @@ def view(request, city1, city2):
 
 def save(request):
 
-    print request.GET
-
-
     request.GET = request.GET.copy()
 
     start_city = request.GET['startCity']
