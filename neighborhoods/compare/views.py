@@ -144,12 +144,35 @@ LOS_ANGELES = [
     'Westwood',
 ]
 
+DENVER = [
+    'Cap Hill',
+    'Cheesman Park',
+    'Cherry Creek',
+    'City Park',
+    'Congress Park',
+    'Country Club',
+    'Glendale',
+    'Golden Triangle',
+    'Hilltop',
+    'LoDo',
+    'LoHi',
+    'Lowry',
+    'Park Hill',
+    'Platt Park',
+    'RiNo',
+    'Sloan Lake',
+    'Stapleton',
+    'Sunnyside',
+    'Wash Park',
+]
+
 CITY_SLUGS = [
     ('San Francisco', 'sf'),
     ('New York', 'nyc'),
     ('Washington DC', 'dc'),
     ('Chicago', 'chicago'),
     ('Los Angeles', 'la'),
+    ('Denver', 'denver'),
 ]
 
 CITIES = {
@@ -158,6 +181,7 @@ CITIES = {
     'Washington DC': WASHINGTON_DC,
     'Chicago': CHICAGO,
     'Los Angeles': LOS_ANGELES,
+    'Denver': DENVER,
 }
 
 def get_best_match(city1, city2, neighborhood1):
