@@ -27,3 +27,4 @@ pip install django-extensions
 - set up url compare city1/city2
 - set up url view city1/city2
 - deploy to live site
+- Set up bootstrap

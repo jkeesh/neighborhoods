@@ -1,0 +1,35 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<h1>Neighborhood Comparisons Across Cities</h1>
+
+
+First City
+<select id="firstCity">
+{% for city_tuple in CITY_SLUGS %}
+    <option  value="{{city_tuple.1}}">{{city_tuple.0}}</option>
+{% endfor %}
+</select>
+
+Second City
+<select id="secondCity">
+{% for city_tuple in CITY_SLUGS %}
+    <option value="{{city_tuple.1}}">{{city_tuple.0}}</option>
+{% endfor %}
+</select>
+
+<button id="compare">Compare</button>
+<button id="view">View Results</button>
+
+
+<script>
+// Set up links to pages based on selected cities
+$("#compare").click(function(){
+    window.location.href = '/compare/' + $("#firstCity").val() + '/' + $("#secondCity").val()
+})
+
+$("#view").click(function(){
+    window.location.href = '/view/' + $("#firstCity").val() + '/' + $("#secondCity").val()
+})
+
+
+</script>
