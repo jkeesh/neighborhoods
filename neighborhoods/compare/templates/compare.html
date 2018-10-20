@@ -22,39 +22,58 @@ Enter as many comparisons as you like. You can leave some blank
 <input type="hidden" id="custId" name="startCity" value="{{city1}}">
 <input type="hidden" id="custId" name="endCity" value="{{city2}}">
 
-<table width="500px">
-
 Add optional username if you'd like to view your results later
 <input type="text" name="username"><br>
-<br>
 
-<tr>
-    <th width="50%" style="text-align:left;">{{city1}}</th>
 
-    <th width="50%" style="text-align:left;">{{city2}}</th>
-</tr>
+<div>
 
-{% for neighborhood in START_NEIGHBORHOODS %}
+    <div style="float:left;">
 
-<tr>
-    <td>
-        {{neighborhood}}
-    </td>
-    <td>
+        <table width="500px">
 
-        <select name="{{neighborhood}}" id="{{neighborhood}}">
-            <option disabled selected value> -- select an option -- </option>
-        {% for match in END_NEIGHBORHOODS %}
-            <option value="{{match}}">{{match}}</option>
+        <br>
+
+        <tr>
+            <th width="50%" style="text-align:left;">{{city1}}</th>
+
+            <th width="50%" style="text-align:left;">{{city2}}</th>
+        </tr>
+
+        {% for neighborhood in START_NEIGHBORHOODS %}
+
+        <tr>
+            <td>
+                {{neighborhood}}
+            </td>
+            <td>
+
+                <select name="{{neighborhood}}" id="{{neighborhood}}">
+                    <option disabled selected value> -- select an option -- </option>
+                {% for match in END_NEIGHBORHOODS %}
+                    <option value="{{match}}">{{match}}</option>
+                {% endfor %}
+                </select>
+            </td>
+
+        </tr>
+
         {% endfor %}
-        </select>
-    </td>
 
-</tr>
+        </table>
 
-{% endfor %}
+    </div>
 
-</table>
+    <div style="float:left;">
+        <h3>Options</h3>
+        {% for match in END_NEIGHBORHOODS %}
+            <div>{{match}}</div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<div style="clear:both;"></div>
 
 <br><br>
 <input type="submit" value="Save All Comparisons">
