@@ -55,7 +55,35 @@ https://stackoverflow.com/questions/21054245/attempt-to-write-a-readonly-databas
 
 needed to run migrations on web server
 
+
+<Directory /home/jkeesh/sites/neighborhoods/neighborhoods/static>
+Require all granted
+</Directory>
+
+
+
 Trying to run collect static on web server
+
+### Helpful commands
+
+Collect static files
+
+    ./manage.py collectstatic
+
+Restart server
+
+    $ systemctl reload apache2
+
+
+DEPLOYMENT
+
+    On local machine
+
+    $ git push origin master; git push web master
+
+    On server
+
+    $ systemctl reload apache2
 
 
 ### TODOS
