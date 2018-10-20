@@ -49,29 +49,16 @@ https://modwsgi.readthedocs.io/en/develop/user-guides/virtual-environments.html
 https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/modwsgi/
 https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-
-(neighborhoods) jkeesh@localhost:~/sites/neighborhoods$ chown www-data:www-data neighborhoods/
-chown: changing ownership of 'neighborhoods/': Operation not permitted
 (neighborhoods) jkeesh@localhost:~/sites/neighborhoods$ sudo chown www-data:www-data neighborhoods/
-(neighborhoods) jkeesh@localhost:~/sites/neighborhoods$ ls -al
-total 32
-drwxrwxr-x 3 jkeesh   jkeesh   4096 Oct 20 20:41 .
-drwxr-xr-x 8 jkeesh   jkeesh   4096 Oct 20 17:46 ..
--rw-rw-r-- 1 jkeesh   jkeesh   6148 Oct 20 20:05 .DS_Store
--rw-rw-r-- 1 jkeesh   jkeesh     15 Oct 20 19:57 .gitignore
-drwxrwxr-x 4 www-data www-data 4096 Oct 20 20:47 neighborhoods
--rw-rw-r-- 1 jkeesh   jkeesh    849 Oct 20 20:41 README.md
--rw-rw-r-- 1 jkeesh   jkeesh     80 Oct 20 20:25 requirements.txt
-(neighborhoods) jkeesh@localhost:~/sites/neighborhoods$ cd neighborhoods/
-(neighborhoods) jkeesh@localhost:~/sites/neighborhoods/neighborhoods$ ls
-compare  db.sqlite3  manage.py  neighborhoods
 (neighborhoods) jkeesh@localhost:~/sites/neighborhoods/neighborhoods$ sudo chown www-data:www-data db.sqlite3 
-(neighborhoods) jkeesh@localhost:~/sites/neighborhoods/neighborhoods$ ls
-compare  db.sqlite3  manage.py  neighborhoods
+https://stackoverflow.com/questions/21054245/attempt-to-write-a-readonly-database-django-w-selinux-error
 
+needed to run migrations on web server
+
+Trying to run collect static on web server
 
 
 ### TODOS
 
-- deploy to live site
+- set up static files
 - Set up bootstrap
