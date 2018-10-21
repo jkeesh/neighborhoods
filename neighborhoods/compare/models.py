@@ -18,5 +18,6 @@ class CityComparison(models.Model):
     username = models.CharField(max_length=200, default='')
 
     def __str__(self):
-        return self.start_city + ":" + self.neighborhood1 + ", " \
-        + self.end_city + ":" + self.neighborhood2 + " (" + self.username + ")"
+        return " (" + self.username + ") " \
+        + self.start_city + ":" + self.neighborhood1 + ", " \
+        + self.end_city + ":" + self.neighborhood2 +  " @ " + str(self.timestamp)
