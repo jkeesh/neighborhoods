@@ -27,7 +27,17 @@ View the site at http://neighborhood.thekeesh.com
     $ ./manage.py collectstatic
 
 
-### Setup
+
+### TODOS
+
+
+    - add comments , disquss
+
+
+
+### Other random notes
+
+#### Setup
 
 mkvirtualenv neighborhoods
 
@@ -86,30 +96,3 @@ Require all granted
 
 
 
-Trying to run collect static on web server
-
-### Helpful commands
-
-Collect static files
-
-    ./manage.py collectstatic
-
-Restart server
-
-    $ systemctl reload apache2
-
-
-DEPLOYMENT
-
-    On local machine
-
-    $ git push origin master; git push web master
-
-    On server
-
-    $ systemctl reload apache2
-
-
-### TODOS
-
-- add comments , disquss
