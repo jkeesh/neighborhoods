@@ -36,6 +36,7 @@ View the site at http://neighborhood.thekeesh.com
     - add some direct city comparison cards
     - make view page responsive
     - make compare page responsive
+    - add HTTPS
     - automate post receive hook for migrations, static files and server
     - add comments , disquss
 
