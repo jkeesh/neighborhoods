@@ -186,6 +186,27 @@ DENVER = [
     'Wash Park',
 ]
 
+SEATTLE = [
+    'Bainbridge',
+    'Beacon Hill',
+    'Ballard',
+    'Belltwon',
+    'Capitol Hill',
+    'Chinatown-International District',
+    'Columbia City',
+    'Downtown Seattle',
+    'Fremont',
+    'Pike Place Market',
+    'Pioneer Square',
+    'Queen Anne',
+    'SoDo',
+    'South Lake Union',
+    'University District',
+    'Waterfront',
+    'West Seattle',
+    'Woodinville',
+]
+
 CITY_SLUGS = [
     ('San Francisco', 'sf'),
     ('New York', 'nyc'),
@@ -193,6 +214,7 @@ CITY_SLUGS = [
     ('Chicago', 'chicago'),
     ('Los Angeles', 'la'),
     ('Denver', 'denver'),
+    ('Seattle', 'seattle'),
 ]
 
 CITIES = {
@@ -202,6 +224,7 @@ CITIES = {
     'Chicago': CHICAGO,
     'Los Angeles': LOS_ANGELES,
     'Denver': DENVER,
+    'Seattle': SEATTLE,
 }
 
 def get_best_match(city1, city2, neighborhood1):
