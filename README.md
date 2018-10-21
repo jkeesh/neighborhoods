@@ -88,5 +88,5 @@ DEPLOYMENT
 
 ### TODOS
 
-- set up static files
 - Set up bootstrap
+- add comments , disquss
