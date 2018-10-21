@@ -1,6 +1,30 @@
 # neighborhoods
 
+### Overview
 
+This site lets people enter mappings from neighborhoods in one city to their comparable neighborhood in another city. The the votes are added up to create a city/neighbhoord mapping. 
+
+View the site at http://neighborhood.thekeesh.com
+
+
+### Local Development Notes
+
+
+    # Set up virtual environment
+    workon neighborhoods
+
+
+### Deployment Notes
+
+    # on local machine, push to both github and the web server
+    $ git push origin master; git push web master
+
+
+    # on the server, restart apache
+    $ systemctl reload apache2
+
+    # if there are new static files, run on the webserver
+    $ ./manage.py collectstatic
 
 
 ### Setup
@@ -88,5 +112,4 @@ DEPLOYMENT
 
 ### TODOS
 
-- Set up bootstrap
 - add comments , disquss
