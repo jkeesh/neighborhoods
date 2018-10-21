@@ -24,6 +24,8 @@ View the site at http://neighborhood.thekeesh.com
     $ systemctl reload apache2
 
     # if there are new static files, run on the webserver
+    $ cd /home/jkeesh/sites/neighborhoods/neighborhoods
+    $ workon neighborhoods
     $ ./manage.py collectstatic
 
 
@@ -32,9 +34,10 @@ View the site at http://neighborhood.thekeesh.com
 
 
     - add some direct city comparison cards
+    - make view page responsive
+    - make compare page responsive
     - automate post receive hook for migrations, static files and server
     - add comments , disquss
-
 
 
 ### Other random notes
