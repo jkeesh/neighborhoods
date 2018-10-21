@@ -278,7 +278,8 @@ def save(request):
     request.GET.pop('endCity', None)
 
     for key, value in request.GET.iteritems():
-        print "%s %s" % (key, value)
+        if key == "username":
+            continue
 
         new_comparison = CityComparison(
             start_city=start_city,
