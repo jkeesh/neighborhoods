@@ -31,6 +31,8 @@ View the site at http://neighborhood.thekeesh.com
 ### TODOS
 
 
+    - add some direct city comparison cards
+    - automate post receive hook for migrations, static files and server
     - add comments , disquss
 
 
