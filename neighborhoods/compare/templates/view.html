@@ -1,46 +1,61 @@
 {% load compare_extras %}
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<a href="/">Home</a>
-
-<h1>View City Comparison Results</h1>
-
-Start: {{city1}}
-<br><br>
-End: {{city2}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
-<table width="500px">
+<div class="container" style="margin-top: 20px;">
+    <div class="row col-8">
 
-<tr>
-    <th width="50%" style="text-align:left;">Starting</th>
+        <div>
+            <a href="/" class="btn btn-outline-secondary">Home</a>
+        <a href="/compare/{{city1slug}}/{{city2slug}}" class="btn btn-primary">Add your own comparison</a>
 
-    <th width="50%" style="text-align:left;">Ending</th>
-</tr>
+        </div>
+        <br><br>
 
-{% for neighborhood in START_NEIGHBORHOODS %}
+        <div style="margin-top: 20px;">
+            <h1>View City Comparison Results</h1>
+        </div>
 
-<tr>
-    <td>
-        {{neighborhood}}
-    </td>
-    <td>
-        {% best_match city1 city2 neighborhood as top_match %}
-        {{ top_match.0}}
-    </td>
-    <td>
-        {{ top_match.1}}
-    </td>
+        <table width=""  class="table table-striped">
 
-</tr>
+            <thead  class="thead-dark">
+                <tr>
+                    <th width="50%" style="text-align:left;">{{city1}}</th>
 
-{% endfor %}
+                    <th width="50%" style="text-align:left;">{{city2}}</th>
 
-</table>
+                    <th></th>
+                </tr>
+            </thead>
 
-<br><br>
+        {% for neighborhood in START_NEIGHBORHOODS %}
 
-<a href="/compare/{{city1slug}}/{{city2slug}}">Add your own comparison</a>
+        <tr>
+            <td>
+                {{neighborhood}}
+            </td>
+            <td>
+                {% best_match city1 city2 neighborhood as top_match %}
+                {{ top_match.0}}
+            </td>
+            <td>
+                {{ top_match.1}}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </table>
+
+        <a href="/compare/{{city1slug}}/{{city2slug}}" class="btn btn-primary" style="margin-top:40px; margin-bottom:60px;">Add your own comparison</a>
+
+    </div> <!-- end row -->
+</div> <!-- end container -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 

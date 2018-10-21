@@ -1,37 +1,63 @@
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h1>Neighborhood Comparisons Across Cities</h1>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<div>The term "neighborhood" is use very loosely here</div>
-<br>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Neighborhood Comparisons Across Cities</h1>
 
-First City
-<select id="firstCity">
-{% for city_tuple in CITY_SLUGS %}
-    <option  value="{{city_tuple.1}}">{{city_tuple.0}}</option>
-{% endfor %}
-</select>
+    <div>The term "neighborhood" is use very loosely here</div>
+    <br>
 
-Second City
-<select id="secondCity">
-{% for city_tuple in CITY_SLUGS %}
-    <option value="{{city_tuple.1}}">{{city_tuple.0}}</option>
-{% endfor %}
-</select>
+    <div class="form-inline">
+    First City
+    <select id="firstCity" class="form-control form-control-sm" >
+    {% for city_tuple in CITY_SLUGS %}
+        <option  value="{{city_tuple.1}}">{{city_tuple.0}}</option>
+    {% endfor %}
+    </select>
 
-<button id="compare">Compare</button>
-<button id="view">View Results</button>
-
-
-<script>
-// Set up links to pages based on selected cities
-$("#compare").click(function(){
-    window.location.href = '/compare/' + $("#firstCity").val() + '/' + $("#secondCity").val()
-})
-
-$("#view").click(function(){
-    window.location.href = '/view/' + $("#firstCity").val() + '/' + $("#secondCity").val()
-})
+    Second City
+    <select id="secondCity" class="form-control form-control-sm">
+    {% for city_tuple in CITY_SLUGS %}
+        <option value="{{city_tuple.1}}">{{city_tuple.0}}</option>
+    {% endfor %}
+    </select>
 
 
-</script>
+    <button id="compare" type="button" class="btn btn-primary">Compare</button>
+    <button id="view" type="button" class="btn btn-success ">View Results</button>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        // Set up links to pages based on selected cities
+        $("#compare").click(function(){
+            window.location.href = '/compare/' + $("#firstCity").val() + '/' + $("#secondCity").val()
+        })
+
+        $("#view").click(function(){
+            window.location.href = '/view/' + $("#firstCity").val() + '/' + $("#secondCity").val()
+        })
+
+
+        </script>
+  </body>
+</html>
+
+
+
+
+
