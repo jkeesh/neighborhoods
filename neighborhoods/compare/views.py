@@ -261,7 +261,11 @@ def name_to_slug(name):
             return city_tuple[1]
 
 def index(request):
-    context = {'CITY_SLUGS': CITY_SLUGS}
+    count = CityComparison.objects.count()
+    context = {
+        'CITY_SLUGS': CITY_SLUGS,
+        'count': count
+    }
     return render(request, 'index.html', context)
 
     # return HttpResponse("Hello, world. You're at the index.")
